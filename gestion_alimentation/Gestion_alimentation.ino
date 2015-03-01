@@ -1,8 +1,6 @@
 #include <SPI.h>
 #include <Adafruit_GFX.h>  
 #include <Adafruit_ST7735.h>
-#include "skyrim_logo.h"
-#include "skyrim.h"
 
 const int PintensionIn = A4;
 const int PintensionOut = A3;
@@ -60,7 +58,7 @@ void setup()
   pinMode(Pinventilo, OUTPUT);
   pinMode(Pinretro, OUTPUT);
   
-  setPwmFrequency(5, 1);
+  PwmFrequence(5, 1);
   
   analogWrite(Pinretro, 120);
   tft.initR(INITR_BLACKTAB);
@@ -144,13 +142,11 @@ float T = Mesure_temperature();
 
   if (Mesure_temperature() <= 30)
   {
-
-    //g(x) = -0.15x²-0.5x+1.3
     vitesse = 0.0225*T*T - 0.5*T + 20;
   } 
   else
   {
-    //f(x) = -0.42x²-1.5x-120
+    
     if(Mesure_temperature() >= 49)
     {
       vitesse = 255;
@@ -187,11 +183,11 @@ float Mesure_intensite()
 
 void Affiche_image()
 {
-
-  while(pixel <= 7808)
+                           // Rempacer ce qui est entre "" par les valeurs demandés
+  while(pixel <= "h * l")
    {
      
-    tft.drawPixel(x + 96, y + 3, pgm_read_word_near(skyrim_logo + pixel));
+    tft.drawPixel(x + 96, y + 3, pgm_read_word_near("nom de l'image" + pixel));
     
     x ++;
     
@@ -206,27 +202,9 @@ void Affiche_image()
   x = 0;
   y = 0;
   pixel = 0;
-  
-  while(pixel <= 2208)
-   {
-    tft.drawPixel(x + 5, y + 80, pgm_read_word_near(skyrim + pixel));
-    
-    x ++;
-    
-    if(x == 92)
-    {
-     y ++;
-     x = 0;
-    }
-    pixel ++;
-   }
-  
-  x = 0;
-  y = 0;
-  pixel = 0;
 }
 
-void setPwmFrequency(int pin, int divisor) {
+void PwmFrequence(int pin, int diviseur) {
   byte mode;
   if(pin == 5 || pin == 6 || pin == 9 || pin == 10) {
     switch(divisor) {
@@ -243,7 +221,7 @@ void setPwmFrequency(int pin, int divisor) {
       TCCR1B = TCCR1B & 0b11111000 | mode;
     }
   } else if(pin == 3 || pin == 11) {
-    switch(divisor) {
+    switch(diviseur) {
       case 1: mode = 0x01; break;
       case 8: mode = 0x02; break;
       case 32: mode = 0x03; break;
