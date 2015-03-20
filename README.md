@@ -1,6 +1,6 @@
 # Gestion alimentation
 
-Les alimentations que l'on fait chez soi avec peu de composants nécessitent l'emploi d'un ou plusieurs multimètres pour visualiser le bon fonctionnement de l'appareil.
+Les alimentations que l'on fait chez soi avec peu de composants nécessitent l'emploi d'un ou plusieurs multimètres pour visualiser le bon fonctionnement de l'appareil. Grace à ce programme et quelques composants vous n'emploierez plus de multimètre.
 
 
 =========
